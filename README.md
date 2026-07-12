@@ -25,10 +25,3 @@ The platform focuses on two primary goals: raising public awareness regarding de
 * **💬 Instant Guidance Assistant:** A dedicated, floating chatbot companion designed to offer responsive, immediate dental health guidance and answer common oral care queries.
 
 ---
-
-### 🎨 Visual Preview
-
-<p align="center">
-  <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=400&q=80" alt="Clinic Interface Preview" width="48%" style="border-radius: 6px; margin-right: 2%;" />
-  <img src="https://images.unsplash.com/photo-1468495244123-6c6c332eeece?auto=format&fit=crop&w=400&q=80" alt="Dashboard Tools Preview" width="48%" style="border-radius: 6px;" />
-</p>
