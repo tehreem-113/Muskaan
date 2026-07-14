@@ -29,7 +29,11 @@ export default function Hero({ lang, onBook, onExplore }) {
           )}
 
           <p className="mt-6 text-lg text-navy/70 max-w-xl">
+<<<<<<< HEAD
             Muskurahat connects you with PMDC-certified dentists, brings oral health
+=======
+            Muskaan connects you with PMDC-certified dentists, brings oral health
+>>>>>>> 9cbe865b9dc769fc32d8b634f5dcd8ea81e0a085
             education in English &amp; Urdu, and helps you build habits that keep
             preventable dental disease away &mdash; from Karachi to Gilgit-Baltistan.
           </p>

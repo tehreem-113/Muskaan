@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState, useEffect, useRef } from 'react'
 import BrushingTimer from './BrushingTimer'
 import { SectionHeading } from './FeaturesGrid'
@@ -107,6 +108,13 @@ export default function Dashboard({ lang }) {
     saveJSON(BRUSH_LOG_KEY, brushLog)
   }, [brushLog])
 
+=======
+import React, { useState } from 'react'
+import BrushingTimer from './BrushingTimer'
+import { SectionHeading } from './FeaturesGrid'
+
+export default function Dashboard({ lang }) {
+>>>>>>> 9cbe865b9dc769fc32d8b634f5dcd8ea81e0a085
   return (
     <section id="tools" className="max-w-7xl mx-auto px-5 sm:px-8 py-20">
       <SectionHeading
@@ -124,6 +132,7 @@ export default function Dashboard({ lang }) {
         <div className="lg:col-span-2 grid sm:grid-cols-2 gap-6">
           <ToothbrushReminderCard />
           <DigitalRecordsCard />
+<<<<<<< HEAD
           <CareReminderCard reminders={reminders} setReminders={setReminders} />
           <StreakCard
             brushLog={brushLog}
@@ -131,6 +140,10 @@ export default function Dashboard({ lang }) {
             setReminders={setReminders}
             today={today}
           />
+=======
+          <CareReminderCard />
+          <StreakCard />
+>>>>>>> 9cbe865b9dc769fc32d8b634f5dcd8ea81e0a085
         </div>
       </div>
     </section>
@@ -145,6 +158,7 @@ function CardShell({ children, className = '' }) {
   )
 }
 
+<<<<<<< HEAD
 // ---------------------------------------------------------------------------
 // 1) Toothbrush reminder — pick the date you got your brush, and it
 //    calculates + remembers the 3-month replacement date automatically.
@@ -164,11 +178,19 @@ function ToothbrushReminderCard() {
   const pct = Math.min(100, Math.round((daysUsed / CYCLE_DAYS) * 100))
   const overdue = daysLeft <= 0
   const replaceDate = addDaysISO(brushDate, CYCLE_DAYS)
+=======
+function ToothbrushReminderCard() {
+  // Demo state: a brush "aged" 76 days out of a 90-day replacement cycle
+  const daysUsed = 76
+  const cycle = 90
+  const pct = Math.min(100, Math.round((daysUsed / cycle) * 100))
+>>>>>>> 9cbe865b9dc769fc32d8b634f5dcd8ea81e0a085
 
   return (
     <CardShell>
       <div className="flex items-center justify-between">
         <span className="text-2xl">🪥</span>
+<<<<<<< HEAD
         <span className={`text-xs font-semibold px-3 py-1 rounded-full ${overdue ? 'bg-navy text-cream' : 'bg-lilac/60 text-navy'}`}>
           {overdue ? 'Replace now!' : `${daysLeft} days left`}
         </span>
@@ -199,10 +221,25 @@ function ToothbrushReminderCard() {
       <p className="text-xs text-navy/40 mt-2">
         {daysUsed} of {CYCLE_DAYS} days used · reminder on {formatDisplayDate(replaceDate)}
       </p>
+=======
+        <span className="text-xs font-semibold bg-lilac/60 text-navy px-3 py-1 rounded-full">
+          {cycle - daysUsed} days left
+        </span>
+      </div>
+      <h3 className="font-display font-600 text-navy mt-4">Toothbrush Reminder</h3>
+      <p className="text-sm text-navy/60 mt-1 flex-1">
+        Replace your toothbrush every 3 months, or sooner if bristles are frayed.
+      </p>
+      <div className="mt-4 h-2 rounded-full bg-lilac/50 overflow-hidden">
+        <div className="h-full bg-dusty rounded-full transition-all" style={{ width: `${pct}%` }} />
+      </div>
+      <p className="text-xs text-navy/40 mt-2">{daysUsed} of {cycle} days used</p>
+>>>>>>> 9cbe865b9dc769fc32d8b634f5dcd8ea81e0a085
     </CardShell>
   )
 }
 
+<<<<<<< HEAD
 // ---------------------------------------------------------------------------
 // 2) Digital dental records — "+ Add a record" form now accepts an optional
 //    JPG/JPEG/PDF attachment. The file is embedded as a base64 data URL and
@@ -297,10 +334,19 @@ function DigitalRecordsCard() {
     if (fileInputRef.current) fileInputRef.current.value = ''
   }
 
+=======
+function DigitalRecordsCard() {
+  const records = [
+    { label: 'Scaling & Polishing', date: 'Mar 2026' },
+    { label: 'X-Ray (Panoramic)', date: 'Jan 2026' },
+    { label: 'Filling — Lower Left Molar', date: 'Oct 2025' },
+  ]
+>>>>>>> 9cbe865b9dc769fc32d8b634f5dcd8ea81e0a085
   return (
     <CardShell>
       <div className="flex items-center justify-between">
         <span className="text-2xl">🗂️</span>
+<<<<<<< HEAD
         <span className="text-xs font-semibold bg-lilac/60 text-navy px-3 py-1 rounded-full">
           {records.length} record{records.length === 1 ? '' : 's'}
         </span>
@@ -432,10 +478,25 @@ function DigitalRecordsCard() {
           + Add a record
         </button>
       )}
+=======
+        <span className="text-xs font-semibold bg-lilac/60 text-navy px-3 py-1 rounded-full">3 records</span>
+      </div>
+      <h3 className="font-display font-600 text-navy mt-4">Digital Dental Records</h3>
+      <ul className="mt-3 space-y-2 flex-1">
+        {records.map((r) => (
+          <li key={r.label} className="flex items-center justify-between text-sm border-b border-lilac/60 pb-2 last:border-none">
+            <span className="text-navy/80">{r.label}</span>
+            <span className="text-navy/40 text-xs">{r.date}</span>
+          </li>
+        ))}
+      </ul>
+      <button className="mt-4 text-sm font-semibold text-dusty hover:text-navy self-start">View full history →</button>
+>>>>>>> 9cbe865b9dc769fc32d8b634f5dcd8ea81e0a085
     </CardShell>
   )
 }
 
+<<<<<<< HEAD
 // ---------------------------------------------------------------------------
 // 3) Personalized care reminders — controlled by Dashboard's `reminders`
 //    state, passed down as props. Checking BOTH Morning brush and Night
@@ -451,6 +512,17 @@ const REMINDER_ITEMS = [
 
 function CareReminderCard({ reminders, setReminders }) {
   const toggle = (id) => setReminders((prev) => ({ ...prev, [id]: !prev[id] }))
+=======
+function CareReminderCard() {
+  const [reminders, setReminders] = useState([
+    { id: 1, text: 'Morning brush', done: true },
+    { id: 2, text: 'Floss before bed', done: false },
+    { id: 3, text: 'Mouthwash rinse', done: false },
+  ])
+
+  const toggle = (id) =>
+    setReminders((rs) => rs.map((r) => (r.id === id ? { ...r, done: !r.done } : r)))
+>>>>>>> 9cbe865b9dc769fc32d8b634f5dcd8ea81e0a085
 
   return (
     <CardShell>
@@ -460,6 +532,7 @@ function CareReminderCard({ reminders, setReminders }) {
       </div>
       <h3 className="font-display font-600 text-navy mt-4">Personalized Care Reminders</h3>
       <ul className="mt-3 space-y-2 flex-1">
+<<<<<<< HEAD
         {REMINDER_ITEMS.map((item) => (
           <li key={item.id}>
             <label className="flex items-center gap-3 text-sm cursor-pointer">
@@ -472,17 +545,33 @@ function CareReminderCard({ reminders, setReminders }) {
               <span className={reminders[item.id] ? 'line-through text-navy/40' : 'text-navy/80'}>
                 {item.text}
               </span>
+=======
+        {reminders.map((r) => (
+          <li key={r.id}>
+            <label className="flex items-center gap-3 text-sm cursor-pointer">
+              <input
+                type="checkbox"
+                checked={r.done}
+                onChange={() => toggle(r.id)}
+                className="w-4 h-4 accent-[#7C7E9D] rounded"
+              />
+              <span className={r.done ? 'line-through text-navy/40' : 'text-navy/80'}>{r.text}</span>
+>>>>>>> 9cbe865b9dc769fc32d8b634f5dcd8ea81e0a085
             </label>
           </li>
         ))}
       </ul>
+<<<<<<< HEAD
       <p className="text-xs text-navy/40 mt-3">
         Complete both brush reminders to count today toward your streak.
       </p>
+=======
+>>>>>>> 9cbe865b9dc769fc32d8b634f5dcd8ea81e0a085
     </CardShell>
   )
 }
 
+<<<<<<< HEAD
 // ---------------------------------------------------------------------------
 // 4) Brushing streak — a real, clickable 7-day streak. Tap any day's dot to
 //    mark it done / not done. Reads `brushLog` from props (owned by
@@ -518,10 +607,16 @@ function StreakCard({ brushLog, setBrushLog, setReminders, today }) {
     }
   }
 
+=======
+function StreakCard() {
+  const days = ['S', 'M', 'T', 'W', 'T', 'F', 'S']
+  const completed = [true, true, true, false, true, true, false]
+>>>>>>> 9cbe865b9dc769fc32d8b634f5dcd8ea81e0a085
   return (
     <CardShell>
       <div className="flex items-center justify-between">
         <span className="text-2xl">🔥</span>
+<<<<<<< HEAD
         <span className="text-xs font-semibold bg-lilac/60 text-navy px-3 py-1 rounded-full">
           {streak}-day streak
         </span>
@@ -545,9 +640,26 @@ function StreakCard({ brushLog, setBrushLog, setReminders, today }) {
             >
               {completed[i] ? '✓' : ''}
             </button>
+=======
+        <span className="text-xs font-semibold bg-lilac/60 text-navy px-3 py-1 rounded-full">5-day streak</span>
+      </div>
+      <h3 className="font-display font-600 text-navy mt-4">Brushing Streak</h3>
+      <p className="text-sm text-navy/60 mt-1 flex-1">Keep it up! Consistency prevents most cavities and gum disease.</p>
+      <div className="mt-4 flex justify-between">
+        {days.map((d, i) => (
+          <div key={i} className="flex flex-col items-center gap-1">
+            <span className="text-xs text-navy/40">{d}</span>
+            <span className={`w-7 h-7 rounded-full flex items-center justify-center text-xs ${completed[i] ? 'bg-dusty text-cream' : 'bg-lilac/40 text-navy/30'}`}>
+              {completed[i] ? '✓' : ''}
+            </span>
+>>>>>>> 9cbe865b9dc769fc32d8b634f5dcd8ea81e0a085
           </div>
         ))}
       </div>
     </CardShell>
   )
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 9cbe865b9dc769fc32d8b634f5dcd8ea81e0a085

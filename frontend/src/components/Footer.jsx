@@ -8,7 +8,11 @@ export default function Footer({ lang }) {
         <div>
           <div className="flex items-center gap-2 mb-4">
             <ToothMark className="w-8 h-8" />
+<<<<<<< HEAD
             <span className="font-display text-lg font-600">Muskurahat</span>
+=======
+            <span className="font-display text-lg font-600">Muskaan</span>
+>>>>>>> 9cbe865b9dc769fc32d8b634f5dcd8ea81e0a085
           </div>
           <p className="text-sm text-cream/70 leading-relaxed">
             {lang === 'ur' ? (
@@ -20,12 +24,20 @@ export default function Footer({ lang }) {
         </div>
 
         <FooterCol title="Platform" links={['Book an Appointment', 'Educational Hub', 'Brushing Timer', 'Clinic Locator']} />
+<<<<<<< HEAD
         <FooterCol title="Company" links={['About Muskurahat', 'Our PMDC Partners', 'Careers', 'Press']} />
+=======
+        <FooterCol title="Company" links={['About Muskaan', 'Our PMDC Partners', 'Careers', 'Press']} />
+>>>>>>> 9cbe865b9dc769fc32d8b634f5dcd8ea81e0a085
         <FooterCol title="Support" links={['Help Center', 'Privacy Policy', 'Terms of Service', 'Contact Us']} />
       </div>
 
       <div className="border-t border-cream/10 py-6 text-center text-xs text-cream/50">
+<<<<<<< HEAD
         © {new Date().getFullYear()} Muskurahat. Made with care for every smile in Pakistan.
+=======
+        © {new Date().getFullYear()} Muskaan. Made with care for every smile in Pakistan.
+>>>>>>> 9cbe865b9dc769fc32d8b634f5dcd8ea81e0a085
       </div>
     </footer>
   )

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+<<<<<<< HEAD
 import { articles, procedureGuides, diseaseGuides } from '../data/mockData'
 import { SectionHeading } from './FeaturesGrid'
 import ProcedureGuideModal from './ProcedureGuideModal'
@@ -12,6 +13,17 @@ export default function EducationalHub({ lang, setLang }) {
   const filteredGuides = activeTag === 'All' || activeTag === 'Procedure' ? procedureGuides : []
   const filteredDiseases = activeTag === 'All' || activeTag === 'Disease' ? diseaseGuides : []
   const filteredArticles = activeTag === 'All' ? articles : articles.filter((a) => a.tag === activeTag)
+=======
+import { articles } from '../data/mockData'
+import { SectionHeading } from './FeaturesGrid'
+
+const tags = ['All', 'Procedure', 'Prevention', 'Awareness', 'Kids']
+
+export default function EducationalHub({ lang, setLang }) {
+  const [activeTag, setActiveTag] = useState('All')
+
+  const filtered = activeTag === 'All' ? articles : articles.filter((a) => a.tag === activeTag)
+>>>>>>> 9cbe865b9dc769fc32d8b634f5dcd8ea81e0a085
 
   return (
     <section id="education" className="bg-lilac/25">
@@ -57,6 +69,7 @@ export default function EducationalHub({ lang, setLang }) {
           ))}
         </div>
 
+<<<<<<< HEAD
         {/* Procedure guides — detailed, step-by-step, open a full explainer modal */}
         {filteredGuides.length > 0 && (
           <>
@@ -164,6 +177,41 @@ export default function EducationalHub({ lang, setLang }) {
       </div>
 
       <ProcedureGuideModal guide={openGuide} lang={lang} onClose={() => setOpenGuide(null)} />
+=======
+        <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filtered.map((a) => (
+            <article
+              key={a.id}
+              className={`rounded-3xl p-6 border flex flex-col gap-3 bg-cream transition-all hover:-translate-y-1 hover:shadow-lg hover:shadow-lilac/50 ${
+                a.highlight ? 'border-dusty ring-2 ring-dusty/30' : 'border-lilac'
+              }`}
+            >
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-bold uppercase tracking-wide text-dusty">{a.tag}</span>
+                <span className="text-xs text-navy/50">{a.readMins} min read</span>
+              </div>
+
+              {a.highlight && (
+                <span className="text-xs font-semibold bg-navy text-cream px-3 py-1 rounded-full w-fit">
+                  ⚠ Public Health Priority
+                </span>
+              )}
+
+              <h3 className={`font-display font-600 text-lg text-navy ${lang === 'ur' ? 'urdu text-xl' : ''}`}>
+                {lang === 'ur' ? a.titleUr : a.titleEn}
+              </h3>
+              <p className={`text-sm text-navy/70 leading-relaxed ${lang === 'ur' ? 'urdu text-base' : ''}`}>
+                {lang === 'ur' ? a.bodyUr : a.bodyEn}
+              </p>
+
+              <button className="mt-2 text-sm font-semibold text-dusty hover:text-navy self-start inline-flex items-center gap-1">
+                {lang === 'ur' ? <span className="urdu">مزید پڑھیں</span> : 'Read more'} →
+              </button>
+            </article>
+          ))}
+        </div>
+      </div>
+>>>>>>> 9cbe865b9dc769fc32d8b634f5dcd8ea81e0a085
     </section>
   )
 }

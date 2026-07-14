@@ -10,8 +10,12 @@
   },
   "dependencies": {
     "react": "^18.3.1",
+<<<<<<< HEAD
     "react-dom": "^18.3.1",
     "react-markdown": "^10.1.0"
+=======
+    "react-dom": "^18.3.1"
+>>>>>>> 9cbe865b9dc769fc32d8b634f5dcd8ea81e0a085
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.1",

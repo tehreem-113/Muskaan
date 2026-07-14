@@ -30,7 +30,11 @@ export default function Navbar({ lang, setLang, onBook, onNav }) {
       <nav className="max-w-7xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
         <a href="#top" className="flex items-center gap-2 shrink-0" onClick={() => onNav?.('top')}>
           <ToothMark />
+<<<<<<< HEAD
           <span className="font-display text-xl font-600 text-navy">Muskurahat</span>
+=======
+          <span className="font-display text-xl font-600 text-navy">Muskaan</span>
+>>>>>>> 9cbe865b9dc769fc32d8b634f5dcd8ea81e0a085
         </a>
 
         {/* Desktop links */}
